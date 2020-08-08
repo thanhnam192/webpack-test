@@ -7,9 +7,6 @@ phases:
     commands:
       - pip install --upgrade pip
       - pip install pipenv --user
-      - pipenv --rm
-      - pipenv shell
-      - pipenv install
       - pipenv lock --clear
       - pipenv install awscli aws-sam-cli
       - npm run build
