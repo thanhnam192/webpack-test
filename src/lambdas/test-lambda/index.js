@@ -3,6 +3,6 @@ const ENV_NAME = process.env.ENV_NAME;
 exports.handler = async (event) => {
     console.log('Hello World');
     console.log(ENV_NAME);
-    Commons.test('nam nguyen');
+    Commons.test('nam nguyen cai meo');
     
 }
