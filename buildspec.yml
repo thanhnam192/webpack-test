@@ -6,9 +6,6 @@ phases:
   build:
     commands:
       - pip install --upgrade pip
-      - pip install --user virtualenv
-      - virtualenv ~/cli-ve
-      - source ~/cli-ve/bin/activate
       - pip install --upgrade awscli aws-sam-cli
       - aws --version
       - npm run build
