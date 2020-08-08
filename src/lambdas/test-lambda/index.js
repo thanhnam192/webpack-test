@@ -5,4 +5,7 @@ exports.handler = async (event) => {
     console.log(ENV_NAME);
     Commons.test('nam nguyen cai meo');
     
+    return {statusCode: 200,
+        body: JSON.stringify({message: 'Hello CodePipeline'})
+    }
 }

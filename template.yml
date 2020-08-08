@@ -6,6 +6,9 @@ Parameters:
   EnvironmentName:
     Type: String
     Default: dev
+  StageName:
+    Type: String
+    Default: dev
 
 
 Conditions:
@@ -26,4 +29,23 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: ./dist/test-lambda/test-lambda.zip
+    Events:
+      getVideo:
+        Type: Api
+        Properties:
+          RestApiId: !Ref TestApiGateWay
+          Path: /api/test
+          Method: get
+
+
+  TestApiGateWay:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: "test-api"
+      StageName: !Ref StageName
+
+Outputs:
+  EndpointUrl:
+    Description: "API Endpoint"
+    Value: !Join ["",["https://",!Ref "TestApiGateWay",".execute-api.",!Ref "AWS::Region",".amazonaws.com/",!Ref StageName,"/"]]
 
