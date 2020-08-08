@@ -29,13 +29,13 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: ./dist/test-lambda/test-lambda.zip
-    Events:
-      getVideo:
-        Type: Api
-        Properties:
-          RestApiId: !Ref TestApiGateWay
-          Path: /api/test
-          Method: get
+      Events:
+        getVideo:
+          Type: Api
+          Properties:
+            RestApiId: !Ref TestApiGateWay
+            Path: /api/test
+            Method: get
 
 
   TestApiGateWay:
